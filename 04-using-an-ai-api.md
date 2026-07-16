@@ -1,28 +1,28 @@
 # Using an AI API safely
 
-Registered participants will receive a free DeepSeek API key at kickoff on July 17, sent through the participant channel — not published in this repo. This file shows how to use it (or any LLM API key) without leaking it or wasting it.
+Registered participants will receive a free DeepSeek API key at kickoff on July 17, distributed through the participant channel rather than published in this repository. This file explains how to use that key, or any LLM API key, without leaking it and without exhausting the shared quota.
 
-## The one rule: keys never go in code
+## The one rule: keys never appear in code
 
-Bots scan every public GitHub push within minutes. A key committed once is stolen, even if you delete it afterwards. So:
+Automated scanners index every public GitHub push within minutes of it landing. A key that is committed once is compromised, even if you delete it in the next commit, because it remains in the git history and has already been captured. Follow this procedure from the start of the project:
 
-1. Put the key in a file called `.env` in your project root:
+1. Put the key in a file named `.env` at the project root:
 
 ```
 DEEPSEEK_API_KEY=your-key-here
 ```
 
-2. Add `.env` to `.gitignore` before your first commit.
+2. Add `.env` to your `.gitignore` before the first commit.
 
-3. Commit a `.env.example` instead, with the variable name but no value, so teammates and judges know what to set:
+3. Commit a `.env.example` file containing the variable name with no value, so teammates and judges know which variables the project expects:
 
 ```
 DEEPSEEK_API_KEY=
 ```
 
-4. Load it in code, never type it in code.
+4. Load the key from the environment in code. Never type the key into a source file.
 
-Python (`pip install openai python-dotenv` — DeepSeek uses the OpenAI-compatible API):
+Python example. DeepSeek exposes an OpenAI-compatible API, so install the standard client with `pip install openai python-dotenv`:
 
 ```python
 import os
@@ -45,7 +45,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-JavaScript (`npm install openai dotenv`):
+JavaScript example, using `npm install openai dotenv`:
 
 ```javascript
 import "dotenv/config";
@@ -66,16 +66,16 @@ const response = await client.chat.completions.create({
 console.log(response.choices[0].message.content);
 ```
 
-If you deploy a frontend, the key must live on your server or in the host's environment settings (Vercel, Render, etc.), never in browser code — anything shipped to the browser is public.
+If your project has a frontend, the API call must run on your server or through your hosting provider's environment configuration (Vercel, Render, and similar platforms all support environment variables). Any value shipped in browser code is public, because every user can open the developer tools and read it.
 
-## Getting good output
+## Getting good output from the model
 
-The system message is where your product lives. It sets the AI's role, tone, and rules once, for every request. Spend real time on it.
+The system message is where most of your product's behavior lives. It defines the model's role, tone, and constraints once, and it applies to every request. Invest real time in it.
 
-- Be specific about format: "Reply with exactly 4 quiz questions as JSON: [{question, options, answer}]" beats "make a quiz". Structured output you can parse is what turns a chatbot into a product.
-- Give it context: pass the student's level, past mistakes, or the actual course material in the prompt. The difference between generic and personalized is what you put in the request.
-- Handle failure: the API will sometimes time out, return malformed JSON, or refuse. Catch errors, retry once, and show the user something graceful.
+- Specify the output format exactly. "Reply with exactly 4 quiz questions as JSON in the shape [{question, options, answer}]" produces output you can parse and render. "Make a quiz" produces prose you cannot build a product on. Structured, parseable output is the difference between a chatbot and an application.
+- Provide context in the request. Pass the student's level, their previous mistakes, or the actual course material into the prompt. The difference between generic output and personalized output is entirely determined by what you include in the request.
+- Handle failure paths. The API will occasionally time out, return malformed JSON, or refuse a request. Catch these errors, retry once, and show the user a graceful message when the retry also fails.
 
-## Don't waste the shared quota
+## Do not waste the shared quota
 
-The provided key is shared infrastructure. Don't call the API in a loop while testing — cache responses during development, keep prompts as short as they can be while staying specific, and never put an API call inside code that runs on every keystroke. If the key stops working, report it to the organizers rather than hammering it.
+The provided key is shared infrastructure for all participants. Cache responses during development instead of re-calling the API for input you have already tested, keep prompts as short as they can be while remaining specific, and never place an API call inside a code path that fires on every keystroke. If the key stops responding, report it to the organizers instead of retrying in a loop.

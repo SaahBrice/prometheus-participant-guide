@@ -1,37 +1,37 @@
 # Coding practices that matter
 
-Judges open your repo. This file is the shortlist of habits that make a codebase look competent, especially if this is your first project. None of it is hard; all of it is visible.
+Judges will open your repository and read it. This file lists the habits that make a codebase look competent to a reviewer, particularly if this is your first serious project. None of them are difficult, and all of them are immediately visible to anyone reading your code.
 
 ## Naming
 
-Names should say what a thing is or does, so the code reads like a sentence.
+Names should state what a thing is or what it does, so that the code reads as a description of its own behavior.
 
-- Variables and functions: descriptive, not abbreviated. `student_score` not `ss`. `generate_quiz(topic)` not `gq(t)`.
-- Booleans read as questions: `is_correct`, `has_submitted`.
-- Functions are verbs (`grade_essay`), data is nouns (`essay_feedback`).
-- Pick one convention per language and stick to it: `snake_case` in Python, `camelCase` in JavaScript.
-- If you need a comment to explain what a variable holds, the name is wrong. Rename it instead.
+- Use descriptive variable and function names rather than abbreviations: `student_score` instead of `ss`, and `generate_quiz(topic)` instead of `gq(t)`.
+- Booleans should read as yes/no questions: `is_correct`, `has_submitted`.
+- Functions are actions and should be named with verbs, such as `grade_essay`. Data is named with nouns, such as `essay_feedback`.
+- Follow the standard convention of your language and apply it consistently: `snake_case` in Python, `camelCase` in JavaScript.
+- If a variable needs a comment to explain what it holds, the name is wrong. Rename the variable instead of writing the comment.
 
 ## Structure
 
-- One file doing one job beats one 800-line file doing everything. A simple split like `app.py`, `ai.py` (all your API calls), and `data.py` is enough for a hackathon.
-- Keep functions short — if a function doesn't fit on your screen, it's doing too many jobs.
-- Don't repeat code. If you paste the same block a third time, turn it into a function.
-- Delete dead code and commented-out experiments before submitting. Judges see them.
+- Several small files, each with one responsibility, are easier to read and debug than one file that does everything. For a project of this size, a split such as `app.py` for the interface, `ai.py` for all API calls, and `data.py` for storage is sufficient.
+- Keep functions short. If a function no longer fits on one screen, it is doing more than one job and should be split.
+- Do not duplicate logic. The moment you paste the same block a second time, extract it into a function and call it from both places.
+- Delete dead code and commented-out experiments before you submit. Reviewers notice them, and they signal a rushed or careless process.
 
 ## Comments and the README
 
-Comment the why, not the what. `x = x + 1  # increase x` is noise. `# retry once because the API times out on long documents` is information.
+Write comments that explain why, not what. A comment such as `x = x + 1  # increase x` adds nothing, whereas `# retry once because the API times out on long documents` records a decision the next reader cannot infer from the code.
 
-Your README is the first thing a judge reads. It needs exactly four things: what the project does in two sentences, how to run it step by step (test these steps on a clean machine or a friend's laptop), what the AI does and which model/API you used, and who built it. A judge who cannot run your project in five minutes will judge it from the video alone.
+The README is the first thing a judge reads, and it needs exactly four sections: what the project does, stated in two sentences; how to run it, as numbered steps that you have verified on a machine other than the one you developed on; what the AI does and which model or API you used; and who built it. A judge who cannot get your project running within five minutes will fall back to judging it from the video alone, and you lose the Technical Execution points that a working local run would have earned.
 
 ## Git
 
-- Commit small and often, with messages that say what changed: "add quiz scoring" not "update" or "fix stuff".
-- Commit from day one, not in one giant lump at the end. A real commit history also proves the work is yours.
-- Add a `.gitignore` before your first commit. It must include your environment file (`.env`), dependency folders (`node_modules/`, `venv/`), and editor junk.
-- Never commit API keys or passwords. This is covered fully in [the API guide](04-using-an-ai-api.md) — read it before you write your first API call, because a key pushed to GitHub even once is compromised forever, even if you delete it in the next commit.
+- Commit small changes frequently, with messages that describe the change: "add quiz scoring" rather than "update" or "fix stuff".
+- Start committing from the first hour, not in one large commit at the end. A continuous commit history also serves as evidence that the work is your own.
+- Create a `.gitignore` before your first commit. It must exclude your environment file (`.env`), dependency directories (`node_modules/`, `venv/`), and editor artifacts.
+- Never commit API keys or passwords. This is covered in detail in [the API guide](04-using-an-ai-api.md), which you should read before writing your first API call. A key pushed to a public repository is compromised permanently, even if you remove it in the following commit, because automated scanners capture it within minutes and the value remains in the git history.
 
 ## Errors and stability
 
-The demo gods are cruel: whatever can crash, will crash while recording. Wrap your API calls in error handling and show the user a friendly message instead of a stack trace. Handle the empty input, the too-long input, and the API timeout. Stability is worth more points than an extra feature.
+Assume that whatever can crash will crash during your recording. Wrap every API call in error handling and present the user with a readable message instead of a stack trace. Handle the empty input, the oversized input, and the API timeout, because those are the three failures that occur most often in live demonstrations. Under this scoring system, stability is worth more than an additional feature.

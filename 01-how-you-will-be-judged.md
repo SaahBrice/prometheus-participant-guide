@@ -1,21 +1,23 @@
 # How you will be judged
 
-Four criteria, 25 points each. That equal weighting is the single most useful fact in this guide: a brilliant model with a bad video loses to a modest tool with a sharp pitch. Budget your time accordingly.
+Submissions are scored on four criteria worth 25 points each, for a total of 100. The equal weighting is the most important fact in this guide. A technically impressive project with a weak demo video will lose to a modest but complete project with a sharp one, because the scoring system treats them as equally valuable. Plan your time with that in mind.
 
-## Educational Impact (25)
+## Educational Impact (25 points)
 
-Judges ask: does this solve a real problem in education? Not "is this cool" — real. The strongest submissions name a specific learner or teacher, a specific pain, and show how the tool removes it. "An app for studying" scores low. "A tool that turns a teacher's PDF notes into practice questions with instant feedback for students who have no tutor" scores high, because the problem and the person are visible.
+The judges are asking whether your tool solves a real problem in education. The strongest submissions identify a specific user, a specific pain point, and demonstrate exactly how the tool removes that pain. "An app for studying" is too vague to score well. "A tool that converts a teacher's PDF lecture notes into practice questions with instant feedback, built for students who have no access to a tutor" scores well because the judge can see the person and the problem without guessing.
 
-## Creative AI/ML Use (25)
+## Creative AI/ML Use (25 points)
 
-The question here is whether AI is the engine or a sticker. A quiz app that sends one prompt to an LLM and displays the answer is a sticker. A tool where the AI adapts to the learner — tracks what they got wrong, changes difficulty, explains in a different way when the first explanation fails — is an engine. You do not need to train your own model. You need the AI to be doing work that the product could not exist without.
+This criterion measures whether AI is the core of your product or a decoration attached to it. A quiz application that forwards one prompt to an LLM and prints the response is decoration. A tool where the model adapts to the learner, for example by tracking which questions were answered incorrectly, adjusting difficulty in response, and re-explaining a concept differently when the first explanation failed, is the core. You are not required to train your own model. You are required to make the AI perform work that the product could not exist without.
 
-## Technical Execution (25)
+## Technical Execution (25 points)
 
-Does it run, does it survive normal use, is it pleasant to use, and is the codebase sane. Judges will open your repo. A clean README, readable names, and no secrets committed to git all count here. A half-finished app with ten features scores worse than one complete flow that never breaks.
+This covers whether the application runs, whether it survives normal use without crashing, whether the interface is usable, and whether the codebase is organized. Judges will open your repository and read it. A clear README, descriptive variable and function names, sensible file structure, and an absence of committed secrets all contribute to this score. A half-finished application with ten features scores worse than a single complete flow that never breaks.
 
-## Pitch & Demo (25)
+## Pitch & Demo (25 points)
 
-Two minutes of video are worth a quarter of your total score. Most teams record it in the last hour and it shows. Treat the video as a feature of the product and give it a full day. Details in [the demo guide](05-the-2-minute-demo.md).
+Two minutes of video are worth the same 25 points as your entire codebase. Most teams record the video in the final hour of the event and the result shows it. Treat the video as a deliverable with its own dedicated time budget. The full breakdown is in [the demo guide](05-the-2-minute-demo.md).
 
-One practical consequence of all this: plan your 13 days roughly as 2 days deciding and scoping, 8 days building one solid flow, 3 days polishing, documenting, and recording. Teams that build for 13 days and pitch for 20 minutes lose to teams that build for 10 and pitch for 3 days.
+## What this means for a two-day build
+
+You have July 17 and July 18. A realistic schedule looks like this: spend the first two to three hours of day one deciding on the idea and cutting the scope down to one working flow, spend the rest of day one and the first half of day two building and testing that flow, and reserve the final hours of day two for writing the README, cleaning the repository, and scripting and recording the video. Teams that build until the last minute and improvise the pitch consistently lose to teams that stop building early and invest the remaining time in the submission itself.
