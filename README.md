@@ -1,8 +1,8 @@
 # Prometheus July AI Challenge — Participant Guide
 
-Welcome. You have 13 days (July 17–30) to build an AI/ML tool that improves how people learn or teach. This repo is your field manual: how the judging works, how to pick an idea that can win, how to write code you won't be embarrassed by, how to use an LLM API safely, and how to make a 2-minute demo that scores.
+Welcome. You have 2 days (July 17–18) to build an AI/ML tool that improves how people learn or teach. This repo is your field manual: how the judging works, how to pick an idea that can win, how to write code you won't be embarrassed by, how to use an LLM API safely, and how to make a 2-minute demo that will win.
 
-Official pages, rules, dates, and prizes live here — read them first:
+Official pages, rules, dates, and prizes:
 
 - Devpost: https://prometheus-july-ai-challenge.devpost.com/
 - Reepls: https://www.reepls.com/contests/prometheus-july-ai-challenge/
@@ -23,4 +23,4 @@ git clone https://github.com/SaahBrice/prometheus-participant-guide.git
 
 Updates will be pushed here during the event, including instructions for the free DeepSeek API key provided to registered participants at kickoff. Watch or star the repo so you don't miss them.
 
-Many of you are new to coding. That is fine — this hackathon rewards a working tool that solves a real learning problem and a clear pitch, not the fanciest tech stack. Everything in this guide is written with that in mind.
+Many of you might be new to coding. That is fine, this hackathon rewards a working tool that solves a real learning problem and a clear pitch, not the fanciest tech stack. Everything in this guide is written with that in mind.
