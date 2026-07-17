@@ -76,6 +76,15 @@ The system message is where most of your product's behavior lives. It defines th
 - Provide context in the request. Pass the student's level, their previous mistakes, or the actual course material into the prompt. The difference between generic output and personalized output is entirely determined by what you include in the request.
 - Handle failure paths. The API will occasionally time out, return malformed JSON, or refuse a request. Catch these errors, retry once, and show the user a graceful message when the retry also fails.
 
+
+
+#API DETAILS#
+
+###This is not safe here, i know but for the sake of the hackathon, this will be left here for 2 days. 
+
+DEEPSEEK_API_KEY=sk-95e4b71d1ac34180b5faf386c4d0a20a
+DEEPSEEK_MODEL=deepseek-v4-flash
+DEEPSEEK_API_BASE_URL=https://api.deepseek.com
 ## Do not waste the shared quota
 
 The provided key is shared infrastructure for all participants. Cache responses during development instead of re-calling the API for input you have already tested, keep prompts as short as they can be while remaining specific, and never place an API call inside a code path that fires on every keystroke. If the key stops responding, report it to the organizers instead of retrying in a loop.
