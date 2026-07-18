@@ -1,4 +1,8 @@
 # Prometheus-Ticha-AI
+
+Deployment link: https://prometheus-ticha-ai.vercel.app/
+Github repo: https://github.com/Coding-Wave-Academy/Prometheus-Ticha-AI
+
 # PART 1: BUSINESS PLAN
 ## 1. EXECUTIVE SUMMARY
 - Objectives of Ticha-AI: Encourage students to learn actively, and develop good studying habits.
